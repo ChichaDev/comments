@@ -9,7 +9,7 @@ type CommentProps = {
 
 function CommentCard({ comment, removeComment }: CommentProps) {
   const username = comment.user?.username;
-  const initialLetter = getInitialLetter(username);
+  const initialLetter = username ? getInitialLetter(username) : "";
 
   return (
     <article key={comment.id} className={style.card}>
