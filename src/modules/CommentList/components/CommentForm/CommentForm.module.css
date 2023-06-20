@@ -28,3 +28,13 @@
   -moz-box-shadow: 0.1rem 0.3rem 1rem 0.2rem rgba(0, 0, 0, 0.75);
   box-shadow: 0.1rem 0.3rem 1rem 0.2rem rgba(0, 0, 0, 0.75);
 }
+
+@media screen and (max-width: 600px) {
+  .textarea {
+    width: 100%;
+  }
+  .btn {
+    top: 70%;
+    right: -5%;
+  }
+}
