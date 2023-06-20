@@ -1,0 +1,56 @@
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  --color-primary: rgb(235, 236, 142);
+  --color-secondary: rgb(218, 158, 46);
+  --color-gray-text: #777777;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  html {
+    font-size: 30%;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  html {
+    font-size: 75%;
+  }
+}
+
+body {
+  padding: 0 5rem;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(222, 227, 7, 1) 0%,
+    rgba(156, 95, 48, 1) 0%,
+    rgba(255, 214, 0, 1) 69%
+  );
+}

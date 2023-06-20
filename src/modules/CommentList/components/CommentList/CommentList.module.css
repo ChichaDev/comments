@@ -1,0 +1,11 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  margin-top: 8rem;
+  text-align: center;
+}
+
+.wrapper:last-child {
+  margin-bottom: 6rem;
+}

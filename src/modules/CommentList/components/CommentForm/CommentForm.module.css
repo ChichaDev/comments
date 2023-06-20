@@ -1,0 +1,30 @@
+.form {
+  position: relative;
+}
+
+.textarea {
+  padding: 1.4rem 3.2rem 1.4rem 1.6rem;
+  border-radius: 0.4rem 0 0 0.4rem;
+  border: 0.2rem solid #573413;
+  outline: none;
+  width: 50%;
+  height: 15rem;
+  font-size: 2rem;
+}
+
+.btn {
+  position: absolute;
+  top: 70%;
+  right: 22%;
+  padding: 1.4rem 2.6rem;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background-color: rgb(121, 16, 16);
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  -webkit-box-shadow: 0.1rem 0.3rem 1rem 0.2rem rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0.1rem 0.3rem 1rem 0.2rem rgba(0, 0, 0, 0.75);
+  box-shadow: 0.1rem 0.3rem 1rem 0.2rem rgba(0, 0, 0, 0.75);
+}
