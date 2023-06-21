@@ -5,13 +5,18 @@ import { fetchComments } from "../api/fetchCommentList";
 export const useCommentControl = (): [
   CommentItem[],
   (userInput: string) => void,
-  (id: number) => void
+  (id: number) => void,
+  boolean
 ] => {
   const [comments, setComments] = useState<CommentItem[]>([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
+
     fetchComments().then((comments) => {
       setComments(comments);
+      setLoading(false);
     });
   }, []);
 
@@ -29,5 +34,5 @@ export const useCommentControl = (): [
     setComments([...comments.filter((com) => com.id !== id)]);
   };
 
-  return [comments, addComment, removeComment];
+  return [comments, addComment, removeComment, loading];
 };

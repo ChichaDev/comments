@@ -5,20 +5,24 @@ import style from "./CommentList.module.css";
 import { useCommentControl } from "../../hooks/useCommentControl";
 
 export const CommentList = () => {
-  const [comments, addComment, removeComment] = useCommentControl();
+  const [comments, addComment, removeComment, loading] = useCommentControl();
 
   return (
     <section className={style.wrapper}>
-      {comments.map((comment) => {
-        return (
-          <CommentCard
-            comment={comment}
-            key={comment.id}
-            removeComment={removeComment}
-          />
-        );
-      })}
-      <CommentForm addComment={addComment} />
+      {loading ? (
+        <p style={{ fontSize: "40px" }}>Loading...</p>
+      ) : (
+        <>
+          {comments.map((comment) => (
+            <CommentCard
+              comment={comment}
+              key={comment.id}
+              removeComment={removeComment}
+            />
+          ))}
+          <CommentForm addComment={addComment} />
+        </>
+      )}
     </section>
   );
 };
