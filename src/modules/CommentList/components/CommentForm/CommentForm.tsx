@@ -1,45 +1,12 @@
-import React, {
-  ChangeEventHandler,
-  FormEventHandler,
-  useEffect,
-  useState,
-} from "react";
+import { useFormControl } from "../../hooks/useFormControl";
 import style from "./CommentForm.module.css";
-import useDebounce from "../../hooks/useDebounce";
-import {
-  getSavedCommentText,
-  saveCommentText,
-} from "../../helpers/commentStorageHelpers";
 
 type CommentFormProps = {
   addComment: (value: string) => void;
 };
 
-const CommentForm: React.FC<CommentFormProps> = ({ addComment }) => {
-  const [userInput, setUserInput] = useState("");
-  const debouncedUserInput = useDebounce(userInput, 200);
-
-  useEffect(() => {
-    const savedCommentText = getSavedCommentText();
-    if (savedCommentText) {
-      setUserInput(savedCommentText);
-    }
-  }, []);
-
-  useEffect(() => {
-    saveCommentText(debouncedUserInput);
-  }, [debouncedUserInput]);
-
-  const handleChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
-    const newText = e.currentTarget.value;
-    setUserInput(newText);
-  };
-
-  const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
-    e.preventDefault();
-    addComment(debouncedUserInput);
-    setUserInput("");
-  };
+const CommentForm = ({ addComment }: CommentFormProps) => {
+  const { userInput, handleChange, handleSubmit } = useFormControl(addComment);
 
   return (
     <form onSubmit={handleSubmit} className={style.form}>
